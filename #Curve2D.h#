@@ -1,0 +1,30 @@
+#ifndef CURVE2D_H
+#define CURVE2D_H
+
+#include<cassert>
+#include<vector>
+#include<cmath>
+#include"Curve2D_Base.h"
+
+namespace knoblauch {
+
+ class Lin_Segment2D : public Curve2D_Base {
+ protected:
+   
+   Vector2D node_begin;
+   Vector2D node_end;
+
+ public:
+   Vector2D get_position_at_s(float_type s) {
+     return node_begin + s*(node_end-node_begin);
+   }
+
+ Lin_Segment2D(const Vector2D& begin, const Vector2D &end) :
+   node_begin(begin),
+   node_end(end) {}
+
+ }
+}
+
+
+#endif
